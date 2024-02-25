@@ -14,7 +14,7 @@ describe('Teste de função adicioanr e Excluir', () => {
     })
     
     it('Teste do botão Deletar', () => {
-        cy.get(':nth-child(2) > .sc-gueYoa > .delete').click()
+        cy.get(':nth-child(3) > .sc-gueYoa > .delete').click()
         cy.get('.sc-beqWaB.eQdhbg.contato').should('have.length', 3)
     })
 })

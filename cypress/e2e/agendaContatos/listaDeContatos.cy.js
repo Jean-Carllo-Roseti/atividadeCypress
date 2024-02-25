@@ -6,6 +6,14 @@ describe('Teste de função botões da lista de contatos', () => {
         cy.get(':nth-child(2) > .sc-gueYoa > .edit').click()
     })
 
+    after(() => {
+        cy.get(':nth-child(2) > .sc-gueYoa > .edit').click()
+        cy.get('input[placeholder="Nome"]').clear().type('gian Souza')
+        cy.get('input[placeholder="E-mail"]').clear().type('gian@ebac.com.br')
+        cy.get('input[placeholder="Telefone"]').clear().type('11912345678')
+        cy.get('.alterar').click()
+    })
+
     it('Teste o processo de Edição.', () => {
         cy.get('input[placeholder="Nome"]').should('have.value', 'gian Souza')
         cy.get('input[placeholder="E-mail"]').should('have.value', 'gian@ebac.com.br')
@@ -27,12 +35,6 @@ describe('Teste de função botões da lista de contatos', () => {
         cy.get('input[placeholder="Nome"]').should('have.value', '').clear()
         cy.get('input[placeholder="E-mail"]').should('have.value', '').clear()
         cy.get('input[placeholder="Telefone"]').should('have.value', '').clear()
-    })
-    it('Reinicio do teste', () => {
-        cy.get('input[placeholder="Nome"]').clear().type('gian Souza')
-        cy.get('input[placeholder="E-mail"]').clear().type('gian@ebac.com.br')
-        cy.get('input[placeholder="Telefone"]').clear().type('11912345678')
-        cy.get('.alterar').click()
     })
 })
 
